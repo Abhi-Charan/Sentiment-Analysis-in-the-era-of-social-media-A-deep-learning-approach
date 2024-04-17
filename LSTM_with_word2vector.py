@@ -178,7 +178,7 @@ model.add(Dense(1, activation='sigmoid'))
 
 model.summary()
 
-# compiles specifying binary cross entrophy as loss function, adam optimzer and accuracy as evaluation metrics
+# compiles using binary cross entrophy as loss function, adam optimzer and accuracy as evaluation metrics
 model.compile(loss='binary_crossentropy',
               optimizer="adam",
               metrics=['accuracy'])
@@ -192,7 +192,7 @@ callbacks = [
 # training of the model
 history = model.fit(x_train, y_train, batch_size=1024, epochs=20, validation_split=0.1, verbose=1, callbacks=callbacks)
 
-# evaluaTION OF the trained model using test data
+# evaluation of the trained model using test data
 score = model.evaluate(x_test, y_test, batch_size=1024)
 print()
 print("Accuracy:",score[1])
@@ -297,7 +297,7 @@ def plot_confusion_matrix(cm, classes,
     plt.ylabel('True label', fontsize=25)
     plt.xlabel('Predicted label', fontsize=25)
 
-# computes confusion matrix using true klabels and predicted labels
+# computes confusion matrix using true labels and predicted labels
 cnf_matrix = confusion_matrix(y_test_1d, y_pred_1d)
 plt.figure(figsize=(12,12))
 plot_confusion_matrix(cnf_matrix, classes=train.target.unique(), title="Confusion matrix")
